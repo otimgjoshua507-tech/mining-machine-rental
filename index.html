@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineMax - Mining Machine Rental Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">⛏️ MineMax</div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#machines" class="nav-link">Machines</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button onclick="openLoginModal()" class="btn-login">Login</button>
+                <button onclick="openSignupModal()" class="btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3D Canvas Section -->
+    <section id="home" class="hero-section">
+        <canvas id="canvas3d"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title">Maximize Your Mining Profits</h1>
+            <p class="hero-subtitle">Rent powerful mining machines and earn passive income</p>
+            <button onclick="scrollToMachines()" class="btn-primary">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Machines Section -->
+    <section id="machines" class="machines-section">
+        <h2 class="section-title">Our Mining Machines</h2>
+        
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterCategory('all')">All</button>
+            <button class="tab-btn" onclick="filterCategory('A')">Category A</button>
+            <button class="tab-btn" onclick="filterCategory('B')">Category B</button>
+            <button class="tab-btn" onclick="filterCategory('C')">Category C</button>
+            <button class="tab-btn" onclick="filterCategory('D')">Category D</button>
+            <button class="tab-btn" onclick="filterCategory('VIP')">VIP Machines</button>
+        </div>
+
+        <!-- Machines Grid -->
+        <div class="machines-grid" id="machinesGrid">
+            <!-- Machines will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <h2 class="section-title">Simple & Transparent Pricing</h2>
+        <div class="pricing-info">
+            <div class="pricing-card">
+                <h3>How It Works</h3>
+                <ul>
+                    <li>✓ Deposit funds</li>
+                    <li>✓ Rent a machine</li>
+                    <li>✓ Earn daily returns</li>
+                    <li>✓ Withdraw after period</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p>Email: support@minemax.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a onclick="toggleModals()">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignupModal()">&times;</span>
+            <h2>Create Account</h2>
+            <form id="signupForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+            <p>Already have an account? <a onclick="toggleModals()">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Machine Details Modal -->
+    <div id="machineModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeMachineModal()">&times;</span>
+            <div id="machineDetails">
+                <!-- Machine details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 MineMax. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
